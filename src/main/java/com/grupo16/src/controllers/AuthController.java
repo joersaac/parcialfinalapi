@@ -92,7 +92,7 @@ public class AuthController {
             userService.insertToken(user, token);
 
             return new ResponseEntity<>(
-                    new TokenDTO(token),
+                    new TokenDTO(token,user.getUsername()),
                     HttpStatus.CREATED
             );
 
