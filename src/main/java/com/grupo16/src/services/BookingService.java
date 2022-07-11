@@ -15,4 +15,5 @@ public interface BookingService {
     void deleteReserve(Long id);
     Page<Booking> getUsersBookings(User user, PageableDTO info);
     List<Booking> getBySchedule(Schedule schedule);
+    Booking getOneById(Long id);
 }

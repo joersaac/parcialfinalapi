@@ -62,4 +62,9 @@ public class BookingServiceImplementation implements BookingService {
     public List<Booking> getBySchedule(Schedule schedule) {
         return bookingRepository.findBySchedule(schedule);
     }
+
+    @Override
+    public Booking getOneById(Long id) {
+        return bookingRepository.findOneById(id);
+    }
 }

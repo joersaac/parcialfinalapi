@@ -11,5 +11,5 @@ public interface BookingRepository extends PagingAndSortingRepository<Booking, L
     Booking findOneByUserAndSchedule(User user,Schedule schedule);
     List<Booking> findBySchedule(Schedule schedule);
     Page<Booking> findOneByUser(User user, Pageable pageable);
-
+    Booking findOneById(Long id);
 }

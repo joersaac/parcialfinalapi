@@ -122,16 +122,7 @@ public class CinemaController {
                         HttpStatus.INTERNAL_SERVER_ERROR
                 );
             }
-            User foundUser = userService.findOneByUsernameAndEmail(bookingDto.getUsername(),bookingDto.getUsername());
-            Schedule foundSchedule = scheduleService.getOneByIdentifier(bookingDto.getCode());
-            if( foundUser == null && foundSchedule == null){
-                return new ResponseEntity<>(
-                        new MessageDto("El usuario o la funcion no han sido encontrados"),
-                        HttpStatus.BAD_REQUEST
-                );
-            }
-
-            Booking foundBooking = bookingService.getOneByUserAndSchedule(foundUser,foundSchedule);
+            Booking foundBooking = bookingService.getOneById(bookingDto.getCode());
 
             if(foundBooking == null){
                 return new ResponseEntity<>(
