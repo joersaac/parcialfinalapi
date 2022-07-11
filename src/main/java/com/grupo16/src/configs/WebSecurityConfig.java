@@ -57,6 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/auth/**").permitAll()
                 .antMatchers("/cinema/movies/**").permitAll()
                 .antMatchers("/cinema/today").permitAll()
+                .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 //Manejador de errores
