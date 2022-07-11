@@ -38,4 +38,9 @@ public class MovieServiceImplementation implements MovieService {
     public Movie findOneByTitle(String title) {
         return movieRepository.findOneByTitle(title);
     }
+
+    @Override
+    public Movie findOneById(String code) {
+        return movieRepository.findOneByCode(code);
+    }
 }

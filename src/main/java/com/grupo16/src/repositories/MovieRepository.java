@@ -12,4 +12,5 @@ import java.util.List;
 public interface MovieRepository extends JpaRepository<Movie, String> {
    Page<Movie> findByCategory(Category category, Pageable pageable);
    Movie findOneByTitle(String title);
+   Movie findOneByCode(String code);
 }

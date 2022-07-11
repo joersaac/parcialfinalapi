@@ -12,4 +12,5 @@ public interface MovieService {
     Page<Movie> findAll(PageableDTO info);
     Page<Movie> findByCategory(Category category, PageableDTO info);
     Movie findOneByTitle(String title);
+    Movie findOneById(String code);
 }

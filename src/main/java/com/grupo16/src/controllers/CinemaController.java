@@ -173,13 +173,13 @@ public class CinemaController {
         }
     }
 
-    @GetMapping("/movies/schedules/{title}")
-    public ResponseEntity<Page<Schedule>> findMovieBookings(@Valid PageableDTO info,@PathVariable(name="title") String title, BindingResult result){
+    @GetMapping("/movies/schedules/{code}")
+    public ResponseEntity<Page<Schedule>> findMovieBookings(@Valid PageableDTO info,@PathVariable(name="code") String code, BindingResult result){
         try{
             if(result.hasErrors()){
                 return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            Movie foundMovie = movieService.findOneByTitle(title);
+            Movie foundMovie = movieService.findOneById(code);
             if( foundMovie == null ){
                 return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
             }
