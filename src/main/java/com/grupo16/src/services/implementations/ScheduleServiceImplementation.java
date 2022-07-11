@@ -1,12 +1,14 @@
 package com.grupo16.src.services.implementations;
 
 import com.grupo16.src.models.dtos.PageableDTO;
+import com.grupo16.src.models.entities.Movie;
 import com.grupo16.src.models.entities.Schedule;
 import com.grupo16.src.repositories.ScheduleRepository;
 import com.grupo16.src.services.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -40,5 +42,12 @@ public class ScheduleServiceImplementation implements ScheduleService {
     @Override
     public Schedule getOneByIdentifier(Long id) {
         return scheduleRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Page<Schedule> getMovieSchedule(Movie movie, PageableDTO info) {
+        PageRequest request = PageRequest
+                .of(info.getPage(), info.getLimit(), Sort.by("id").descending());
+        return scheduleRepository.findByMovie(movie,request);
     }
 }

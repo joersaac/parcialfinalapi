@@ -33,4 +33,9 @@ public class MovieServiceImplementation implements MovieService {
                 .of(info.getPage(), info.getLimit(), Sort.by("title").ascending());
         return movieRepository.findByCategory(category,request);
     }
+
+    @Override
+    public Movie findOneByTitle(String title) {
+        return movieRepository.findOneByTitle(title);
+    }
 }
